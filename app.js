@@ -12,23 +12,23 @@ var SAMPLE_DATA = [
 var Nav = React.createClass({
   render: function() {
     return (
-      <div class="pure-u id-nav">
-          <a href="#nav" class="nav-menu-button">Menu</a>
+      <div className="pure-u id-nav">
+          <a href="#nav" className="nav-menu-button">Menu</a>
 
-          <div class="nav-inner">
-              <a class="pure-button primary-button" href="#">Compose</a>
+          <div className="nav-inner">
+              <a className="pure-button primary-button" href="#">Compose</a>
 
-              <div class="pure-menu pure-menu-open">
+              <div className="pure-menu pure-menu-open">
                   <ul>
-                      <li><a href="#">Inbox <span class="email-count">(2)</span></a></li>
+                      <li><a href="#">Inbox <span className="email-count">(2)</span></a></li>
                       <li><a href="#">Important</a></li>
                       <li><a href="#">Sent</a></li>
                       <li><a href="#">Drafts</a></li>
                       <li><a href="#">Trash</a></li>
-                      <li class="pure-menu-heading">Labels</li>
-                      <li><a href="#"><span class="email-label-personal"></span>Personal</a></li>
-                      <li><a href="#"><span class="email-label-work"></span>Work</a></li>
-                      <li><a href="#"><span class="email-label-travel"></span>Travel</a></li>
+                      <li className="pure-menu-heading">Labels</li>
+                      <li><a href="#"><span className="email-label-personal"></span>Personal</a></li>
+                      <li><a href="#"><span className="email-label-work"></span>Work</a></li>
+                      <li><a href="#"><span className="email-label-travel"></span>Travel</a></li>
                   </ul>
               </div>
           </div>
@@ -47,15 +47,15 @@ var EmailItem = React.createClass({
       classes += ' email-item-unread';
     }
     return this.transferPropsTo(
-      <div class={classes}>
-        <div class="pure-u">
-          <img class="email-avatar" alt={this.props.name + '\'s avatar'} src={this.props.avatar} height="65" width="65"/>
+      <div className={classes}>
+        <div className="pure-u">
+          <img className="email-avatar" alt={this.props.name + '\'s avatar'} src={this.props.avatar} height="65" width="65"/>
         </div>
 
-        <div class="pure-u-3-4">
-          <h5 class="email-name">{this.props.name}</h5>
-          <h4 class="email-subject">{this.props.subject}</h4>
-          <p class="email-desc">
+        <div className="pure-u-3-4">
+          <h5 className="email-name">{this.props.name}</h5>
+          <h4 className="email-subject">{this.props.subject}</h4>
+          <p className="email-desc">
             {this.props.children}
           </p>
         </div>
@@ -81,8 +81,8 @@ var List = React.createClass({
     }.bind(this));
 
     return (
-      <div class="pure-u id-list">
-          <div class="content">
+      <div className="pure-u id-list">
+          <div className="content">
              {items}
           </div>
       </div>
@@ -93,25 +93,25 @@ var List = React.createClass({
 var Main = React.createClass({
   render: function() {
     return (
-      <div class="pure-u id-main">
-          <div class="content">
-              <div class="email-content pure-g">
-                  <div class="email-content-header pure-g">
-                      <div class="pure-u-1-2">
-                          <h1 class="email-content-title">{this.props.email.subject}</h1>
-                          <p class="email-content-subtitle">
+      <div className="pure-u id-main">
+          <div className="content">
+              <div className="email-content pure-g">
+                  <div className="email-content-header pure-g">
+                      <div className="pure-u-1-2">
+                          <h1 className="email-content-title">{this.props.email.subject}</h1>
+                          <p className="email-content-subtitle">
                               From <a>{this.props.email.name}</a> at <span>{this.props.email.timestamp}</span>
                           </p>
                       </div>
 
-                      <div class="pure-u-1-2 email-content-controls">
-                          <a class="pure-button secondary-button">Reply</a>
-                          <a class="pure-button secondary-button">Forward</a>
-                          <a class="pure-button secondary-button">Move to</a>
+                      <div className="pure-u-1-2 email-content-controls">
+                          <a className="pure-button secondary-button">Reply</a>
+                          <a className="pure-button secondary-button">Forward</a>
+                          <a className="pure-button secondary-button">Move to</a>
                       </div>
                   </div>
 
-                  <div class="email-content-body pure-u-1" dangerouslySetInnerHTML={{__html: this.props.email.content}} />
+                  <div className="email-content-body pure-u-1" dangerouslySetInnerHTML={{__html: this.props.email.content}} />
               </div>
           </div>
       </div>
@@ -130,7 +130,7 @@ var App = React.createClass({
   },
   render: function() {
     return (
-      <div class="pure-g-r content id-layout">
+      <div className="pure-g-r content id-layout">
         <Nav />
         <List emails={this.props.emails} selected={this.state.selected} onEmailSelected={this.handleEmailSelected} read={this.state.read} />
         <Main email={this.props.emails[this.state.selected]} />
