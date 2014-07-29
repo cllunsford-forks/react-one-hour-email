@@ -69,7 +69,7 @@ var List = React.createClass({
     var items = this.props.emails.map(function(email, i) {
       return (
         <EmailItem
-            onClick={this.props.onEmailSelected.bind(this.props, i)}
+            onClick={this.props.onEmailSelected.bind(null, i)}
             avatar={email.avatar}
             selected={this.props.selected === i}
             name={email.name}
