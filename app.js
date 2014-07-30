@@ -39,13 +39,12 @@ var Nav = React.createClass({
 
 var EmailItem = React.createClass({
   render: function() {
-    var classes = 'email-item pure-g';
-    if (this.props.selected) {
-      classes += ' email-item-selected';
-    }
-    if (this.props.unread) {
-      classes += ' email-item-unread';
-    }
+    var cx = React.addons.classSet;
+    var classes = cx({
+      'email-item pure-g': true,
+      'email-item-selected': this.props.selected,
+      'email-item-unread': this.props.unread
+    });
     return this.transferPropsTo(
       <div className={classes}>
         <div className="pure-u">
